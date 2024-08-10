@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const json5 = require('json5');
+const { type } = require('os');
 
 module.exports = {
   mode: 'development',
@@ -18,7 +20,18 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource', 
       },
-    ]
+      {
+        test: /\.csv$/i,
+        use: ['csv-loader'],
+      },
+      {
+        test: /\.json5$/i,
+        type: 'json',
+        parser: {
+          parse: json5.parse,
+        },
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

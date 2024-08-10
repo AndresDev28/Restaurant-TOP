@@ -1,4 +1,15 @@
-import './style.css';
+import './styles/style.css';
+import './modules/about.js';
+import {loadHome} from './modules/home';
+import {loadMenu} from './modules/menu';
+import {loadAbout} from './modules/about';
+
+document.getElementById('home').addEventListener('click', loadHome);
+document.getElementById('menu').addEventListener('click', loadMenu);
+document.getElementById('about').addEventListener('click', loadAbout);
+
+
+loadHome();
 //Importar imagen del logo
 import logoSrc from './img/hot-dog-logo.png';
 
